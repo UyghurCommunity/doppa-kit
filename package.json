@@ -1,0 +1,51 @@
+{
+  "name": "@uyghurcommunity/doppa",
+  "version": "0.1.0",
+  "description": "Interactive doppa-inspired Canvas embroidery and original SVG textile patterns.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./patterns": {
+      "types": "./src/patterns.d.ts",
+      "import": "./src/patterns.js",
+      "default": "./src/patterns.js"
+    }
+  },
+  "types": "./src/index.d.ts",
+  "files": [
+    "src",
+    "examples",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "uyghur",
+    "doppa",
+    "embroidery",
+    "canvas",
+    "svg",
+    "patterns",
+    "rtl"
+  ],
+  "license": "MIT",
+  "author": "UyghurCommunity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UyghurCommunity/doppa-kit.git"
+  },
+  "homepage": "https://uyghurcommunity.github.io/doppa-kit/",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
