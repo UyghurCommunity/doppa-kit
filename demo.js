@@ -12,11 +12,21 @@ const art = createDoppa($('art'), { onChange(state) {
   $('pause').setAttribute('aria-pressed', String(state.paused));
 } });
 const defaults = { badam: ['#e9e2bf', '#132b27'], atlas: ['#68d3cc', '#181f31'], golden: ['#ecc97b', '#2d1828'] };
+let lastTextileColors = '';
 function updatePattern() {
   const svg = createPattern({ type: $('pattern').value, width: 1024, height: 256, colors: { cloth: $('cloth').value, thread: $('thread').value } });
   $('pattern-preview').innerHTML = svg; // Only validated colors and fixed generator paths enter this SVG.
+  const signature = `${$('cloth').value}/${$('thread').value}`;
+  document.querySelectorAll('[data-textile]').forEach((sheet) => {
+    if (lastTextileColors !== signature) sheet.innerHTML = createPattern({ type: sheet.dataset.textile, width: 288, height: 216, tileSize: 72, colors: { cloth: $('cloth').value, thread: $('thread').value } });
+    sheet.classList.toggle('is-selected', sheet.dataset.textile === $('pattern').value);
+  });
+  document.querySelectorAll('[data-hero-pattern]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.heroPattern === $('pattern').value)));
+  $('weave-sculpture').style.setProperty('--silk-glow', $('thread').value);
+  lastTextileColors = signature;
   return svg;
 }
+document.querySelectorAll('[data-hero-pattern]').forEach((button) => button.addEventListener('click', () => { $('pattern').value = button.dataset.heroPattern; updatePattern(); }));
 $('palette').addEventListener('change', () => {
   art.setPalette($('palette').value);
   [$('thread').value, $('cloth').value] = defaults[$('palette').value];

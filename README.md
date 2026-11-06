@@ -70,4 +70,6 @@ Code and original digital artwork: MIT, UyghurCommunity. No font binaries, dicti
 
 ## Playground typography
 
+The playground includes an original floating textile sculpture built from this package's almond, atlas and rosette SVG generators. Hero pattern buttons select the real generator, and palette/color controls update the textile samples. Use the hero's motion button to pause the decorative animation; sculpture rotation has its own existing control. Reduced-motion preferences are honored, and decorative animations pause when the scene is outside the viewport or the page is hidden. The effects use local CSS/JavaScript without an animation dependency.
+
 Uyghur interface and control text use the externally linked **ALKATIP Basma** font, with WOFF2, WOFF, and TTF fallbacks and `font-display: swap`. Explicit language spans and system/monospace stacks preserve the existing Latin and code typography. The `.alkatip-basma` helper sets RTL direction, bidi embedding, and line-height 2.2. Font binaries are not bundled, and the renderer generates geometry rather than drawing font-dependent text.
