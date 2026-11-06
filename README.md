@@ -66,4 +66,8 @@ Open `http://localhost:4174/`. Serve through HTTP; browser ES modules cannot rel
 
 ## License and design
 
-Code and original digital artwork: MIT, UyghurCommunity. No fonts, dictionary content or upstream swarm engine are bundled. Cultural inspiration: doppa embroidery and atlas textile colors; specific motifs here are newly drawn artistic interpretations. Native-speaker and craft-community feedback is welcome through GitHub issues.
+Code and original digital artwork: MIT, UyghurCommunity. No font binaries, dictionary content or upstream swarm engine are bundled. Cultural inspiration: doppa embroidery and atlas textile colors; specific motifs here are newly drawn artistic interpretations. Native-speaker and craft-community feedback is welcome through GitHub issues.
+
+## Playground typography
+
+Uyghur interface and control text use the externally linked **ALKATIP Basma** font, with WOFF2, WOFF, and TTF fallbacks and `font-display: swap`. Explicit language spans and system/monospace stacks preserve the existing Latin and code typography. The `.alkatip-basma` helper sets RTL direction, bidi embedding, and line-height 2.2. Font binaries are not bundled, and the renderer generates geometry rather than drawing font-dependent text.
